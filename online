@@ -1,0 +1,24 @@
+#!/bin/bash
+
+clear
+echo "";
+echo "========== ผู้ใช้ SSH ทั้งหมด =========="
+echo "ไอดี    |      ชื่อ     |     เซิร์ฟเวอร์";
+ 
+data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
+echo "";
+
+for PID in "${data[@]}"
+do
+# open ssh
+NUM=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | wc -l`;
+USER=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $9}'`;
+IP=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $11}'`;
+if [ $NUM -eq 1 ]; then
+echo "$PID | $USER | $IP";
+fi
+done
+echo "-----------------------------------";
+echo "";
+echo " กลับ : m";
+echo "";

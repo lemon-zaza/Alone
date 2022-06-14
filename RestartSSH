@@ -1,0 +1,8 @@
+#!/bin/bash
+# เริ่มใหม่
+
+/etc/init.d/ssh restart
+
+echo ""
+echo " Restart เสร็จ : m"
+echo ""

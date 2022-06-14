@@ -1,0 +1,20 @@
+#!/bin/bash
+
+clear
+echo -e ""
+echo -e "============================="
+echo -e ""
+echo -e " ➢ Command  : Script"
+echo -e ""
+echo -e "============================="
+echo -e ""
+echo -e " ➢ 01       : แก้ใข Squid3"
+echo -e " ➢ 02       : รีสตาร์ท Squid3"
+echo -e " ➢ 03       : สร้างชื่อผู้ใช้ SSH"
+echo -e " ➢ 04       : เช็คชื่อผู้ใช้"
+echo -e " ➢ 05       : เช็คผู้ใช้ Online"
+echo -e " ➢ 06       : ลบชื่อผู้ใช้"
+echo -e " ➢ 07       : รีสตาร์ท SSH"
+echo -e ""
+echo -e "============================="
+echo -e ""
