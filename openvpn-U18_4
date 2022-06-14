@@ -1,0 +1,124 @@
+#!/bin/bash
+
+# Ubuntu 18.4 เชื่อมต่อเดี่ยว
+# https://m.me/PhanudetChantra
+
+if [[ $EUID -ne 0 ]]; then
+  echo "เกิดข้อผิดพลาด: กรุณาเข้าสู่ระบบด้วย root : sudo -i ก่อนลงสคริปต์" 2>&1
+  exit 1
+fi
+
+MYIP=$(wget -qO- http://whatismyip.akamai.com/)
+
+# set time GMT +7
+ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
+
+apt update
+apt -y install curl gnupg2 wget unzip
+apt -y install neofetch
+echo "clear" >> .bash_profile
+echo "neofetch" >> .bash_profile
+
+# Install OpenVPN Access Server
+apt -y install ca-certificates wget net-tools gnupg
+wget -qO - https://as-repository.openvpn.net/as-repo-public.gpg | apt-key add -
+echo "deb http://as-repository.openvpn.net/as/debian bionic main" > /etc/apt/sources.list.d/openvpn-as-repo.list
+
+clear
+
+cd
+# setting port ssh
+sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
+sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
+service ssh restart
+
+# Banner
+wget -O /etc/issue.net "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Banner"
+echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
+service ssh restart
+service dropbear restart
+
+cd /usr/bin
+wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
+wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit_squid"
+wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Restart"
+wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/User-New"
+wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/User"
+wget -O /usr/local/bin/05 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/online"
+wget -O /usr/local/bin/06 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Delete-user"
+wget -O /usr/local/bin/07 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/RestartSSH"
+
+chmod +x /usr/local/bin/m
+chmod +x /usr/local/bin/01
+chmod +x /usr/local/bin/02
+chmod +x /usr/local/bin/03
+chmod +x /usr/local/bin/04
+chmod +x /usr/local/bin/05
+chmod +x /usr/local/bin/06
+chmod +x /usr/local/bin/07
+
+sudo touch /etc/apt/sources.list.d/trusty_sources.list
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list.d/trusty_sources.list
+apt update
+
+apt -y install squid3=3.3.8-1ubuntu6 squid=3.3.8-1ubuntu6 squid3-common=3.3.8-1ubuntu6
+wget -O squid3 https://raw.githubusercontent.com/PiTOn-0/Alone/master/squid3
+sudo cp squid3 /etc/init.d/
+sudo chmod +x /etc/init.d/squid3
+sudo update-rc.d squid3 defaults
+
+cp /etc/squid3/squid.conf /etc/squid3/squid.conf.orig
+echo "acl localnet src 0.0.0.1-0.255.255.255
+acl localnet src 10.0.0.0/8
+acl localnet src 100.64.0.0/10
+acl localnet src 169.254.0.0/16
+acl localnet src 172.16.0.0/12
+acl localnet src 192.168.0.0/16
+acl localnet src fc00::/7
+acl localnet src fe80::/10
+
+acl SSL_ports port 443
+acl Safe_ports port 80          # http
+acl Safe_ports port 21          # ftp
+acl Safe_ports port 443         # https
+acl Safe_ports port 70          # gopher
+acl Safe_ports port 210         # wais
+acl Safe_ports port 1025-65535  # unregistered ports
+acl Safe_ports port 280         # http-mgmt
+acl Safe_ports port 488         # gss-http
+acl Safe_ports port 591         # filemaker
+acl Safe_ports port 777         # multiling http
+acl CONNECT method CONNECT
+
+acl ip_server dst $MYIP-$MYIP/255.255.255.255
+
+http_access allow ip_server
+http_access allow localhost manager
+http_access deny manager
+http_access allow localnet
+http_access allow localhost
+http_access deny all
+
+http_port 8080
+
+cache_store_log none
+cache_log /dev/null
+logfile_rotate 0
+
+via off
+forwarded_for off
+dns_v4_first on
+refresh_pattern ^ftp:           1440    20%     10080
+refresh_pattern ^gopher:        1440    0%      1440
+refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
+refresh_pattern .               0       20%     4320
+visible_hostname Phanudet" > /etc/squid3/squid.conf
+
+/etc/init.d/squid3 start
+/etc/init.d/squid3 restart
+
+clear
+
+apt update
+apt -y install openvpn-as
