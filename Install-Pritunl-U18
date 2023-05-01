@@ -43,6 +43,7 @@ sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=109/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 12000 -p 115 -p 53"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
+service dropbear restart
 
 # Banner
 wget -O /etc/issue.net "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Banner"
