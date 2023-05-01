@@ -2,6 +2,7 @@
 # เริ่มใหม่
 
 /etc/init.d/ssh restart
+/etc/init.d/dropbear restart
 
 echo ""
 echo " Restart เสร็จ : m"
