@@ -112,6 +112,10 @@ http_port 8080
 http_port 8000
 http_port 3128
 
+cache_store_log none
+cache_log /dev/null
+logfile_rotate 0
+
 via off
 forwarded_for off
 dns_v4_first on
