@@ -11,6 +11,9 @@ MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
 
 apt update
+apt-get -y install ufw
+apt-get -y install sudo
+
 apt -y install curl gnupg2 wget unzip
 apt -y install neofetch
 echo "clear" >> .bash_profile
@@ -122,6 +125,25 @@ visible_hostname Phanudet" > /etc/squid/squid.conf
 
 /etc/init.d/squid start
 /etc/init.d/squid restart
+
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw allow ssh
+sudo ufw allow 143/tcp
+sudo ufw allow 12000/tcp
+sudo ufw allow 115/tcp
+sudo ufw allow 109/tcp
+sudo ufw allow 143/udp
+sudo ufw allow 12000/udp
+sudo ufw allow 115/udp
+sudo ufw allow 109/udp
+sudo ufw allow 8080
+sudo ufw allow 8000
+sudo ufw allow 3128
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
 
 clear
 echo ""
