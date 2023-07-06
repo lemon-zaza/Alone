@@ -19,6 +19,10 @@ echo "$PID | $USER | $IP";
 fi
 done
 
+echo "";
+echo "========== ผู้ใช้ DROPBEAR ทั้งหมด =========="
+echo "ไอดี    |      ชื่อ     |     เซิร์ฟเวอร์";
+
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 echo "";
 
