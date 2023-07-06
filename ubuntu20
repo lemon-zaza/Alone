@@ -58,7 +58,7 @@ service dropbear restart
 cd /usr/bin
 wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
 wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit_squid"
-wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Restart"
+wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/squid-restart"
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/User-New"
 wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/User"
 wget -O /usr/local/bin/05 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/online"
