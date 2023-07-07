@@ -133,6 +133,21 @@ visible_hostname Phanudet" > /etc/squid3/squid.conf
 /etc/init.d/squid3 start
 /etc/init.d/squid3 restart
 
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw allow ssh
+sudo ufw allow 143/tcp
+sudo ufw allow 12000/tcp
+sudo ufw allow 115/tcp
+sudo ufw allow 109/tcp
+sudo ufw allow 143/udp
+sudo ufw allow 12000/udp
+sudo ufw allow 115/udp
+sudo ufw allow 109/udp
+sudo ufw allow 8080
+sudo ufw allow 8000
+sudo ufw allow 3128
+
 clear
 echo ""
 echo " ========= • ≧ SCRIPT INSTALL AUTO ≦ • ========="
