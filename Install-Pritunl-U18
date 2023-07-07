@@ -144,9 +144,9 @@ sudo ufw allow 143/udp
 sudo ufw allow 12000/udp
 sudo ufw allow 115/udp
 sudo ufw allow 109/udp
-sudo ufw allow 8080
-sudo ufw allow 8000
-sudo ufw allow 3128
+sudo ufw allow 8080/tcp
+sudo ufw allow 8000/tcp
+sudo ufw allow 3128/tcp
 
 clear
 echo ""
