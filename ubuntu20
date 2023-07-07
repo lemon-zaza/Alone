@@ -146,7 +146,7 @@ echo " ➢  สคริปต์ใช้งานฟรี ความคุ�
 echo " ➢  เมนู : m"
 echo ""
 echo "• Squid Proxy : $MYIP"
-echo "• Proxy Port  : 8080,8000,3128"
+echo "• Proxy Port  : 8080"
 echo "• Pritunl Websites https://$MYIP"
 echo ""
 pritunl setup-key
