@@ -107,6 +107,7 @@ http_access allow localhost
 http_access deny all
 
 http_port 8080
+http_port 3128
 
 cache_store_log none
 cache_log /dev/null
@@ -136,6 +137,7 @@ sudo ufw allow 12000/udp
 sudo ufw allow 115/udp
 sudo ufw allow 109/udp
 sudo ufw allow 8080/tcp
+sudo ufw allow 3128/tcp
 
 clear
 echo ""
@@ -146,7 +148,7 @@ echo " ➢  สคริปต์ใช้งานฟรี ความคุ�
 echo " ➢  เมนู : m"
 echo ""
 echo "• Squid Proxy : $MYIP"
-echo "• Proxy Port  : 8080"
+echo "• Proxy Port  : 8080,3128"
 echo "• Pritunl Websites https://$MYIP"
 echo ""
 pritunl setup-key
