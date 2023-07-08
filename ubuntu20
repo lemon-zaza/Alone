@@ -122,8 +122,8 @@ refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
 refresh_pattern .               0       20%     4320
 visible_hostname Phanudet" > /etc/squid/squid.conf
 
-systemctl start squid
-systemctl enable squid
+/etc/init.d/squid start
+/etc/init.d/squid restart
 
 sudo ufw allow http
 sudo ufw allow https
