@@ -81,8 +81,6 @@ visible_hostname Phanudet" > /etc/squid/squid.conf
 /etc/init.d/squid start
 /etc/init.d/squid restart
 
-sudo ufw allow http
-sudo ufw allow https
 sudo ufw allow ssh
 sudo ufw allow 8080
 sudo ufw allow 3128
