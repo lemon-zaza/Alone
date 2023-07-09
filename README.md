@@ -1,11 +1,16 @@
 # Alone
 Auto install PRITUNL Linux OS.
 
-* Ubuntu  18.04, 20.04
+* Ubuntu20.04
 
 
 ## ufw ปฎิเสธขาเข้า / อณูญาติขาออก
 
+install
+```
+wget -O install https://raw.githubusercontent.com/PiTOn-0/Alone/master/ubuntu20
+bash install
+```
 เมื่อทุกอย่างเสร็จแล้ว เป็นสิ่งสุดท้าย
 
 ```
