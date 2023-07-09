@@ -7,9 +7,6 @@ fi
 
 MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
-# set time GMT +7
-ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
-
 apt update
 apt-get -y install ufw
 apt-get -y install sudo
@@ -30,47 +27,7 @@ apt --assume-yes install pritunl mongodb-server
 systemctl start pritunl mongodb
 systemctl enable pritunl mongodb
 
-cd
-# setting port ssh
-sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
-sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
-service ssh restart
-
-# install dropbear
-apt -y install dropbear
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 12000 -p 115 -p 109"/g' /etc/default/dropbear
-echo "/bin/false" >> /etc/shells
-echo "/usr/sbin/nologin" >> /etc/shells
-service dropbear restart
-
-# Banner
-wget -O /etc/issue.net "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Banner"
-echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-service ssh restart
-service dropbear restart
-
-cd /usr/bin
-wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
-wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit_squid"
-wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Restart"
-wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/User-New"
-wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/User"
-wget -O /usr/local/bin/05 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/online"
-wget -O /usr/local/bin/06 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Delete-user"
-wget -O /usr/local/bin/07 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/RestartSSH"
-
-chmod +x /usr/local/bin/m
-chmod +x /usr/local/bin/01
-chmod +x /usr/local/bin/02
-chmod +x /usr/local/bin/03
-chmod +x /usr/local/bin/04
-chmod +x /usr/local/bin/05
-chmod +x /usr/local/bin/06
-chmod +x /usr/local/bin/07
-
+clear
 sudo touch /etc/apt/sources.list.d/trusty_sources.list
 echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list.d/trusty_sources.list
 apt update
@@ -133,10 +90,6 @@ visible_hostname Phanudet" > /etc/squid3/squid.conf
 /etc/init.d/squid3 restart
 
 sudo ufw allow ssh
-sudo ufw allow 143/tcp
-sudo ufw allow 12000/tcp
-sudo ufw allow 115/tcp
-sudo ufw allow 109/tcp
 sudo ufw allow 8080
 sudo ufw allow 3128
 
@@ -146,7 +99,6 @@ echo " ========= • ≧ SCRIPT INSTALL AUTO ≦ • ========="
 echo "        ------ • ≧ ติดตั้งสำเร็จ..! ≦ • ------"
 echo ""
 echo " ➢  สคริปต์ใช้งานฟรี ความคุมเซิร์ฟเวอร์ด้วยระบบ PRITUNL."
-echo " ➢  เมนู : m"
 echo ""
 echo "• Squid Proxy : $MYIP"
 echo "• Proxy Port  : 8080,3128"
