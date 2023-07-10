@@ -8,9 +8,6 @@ fi
 MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
 apt update
-apt-get -y install ufw
-apt-get -y install sudo
-
 apt -y install curl gnupg2 wget unzip
 apt -y install neofetch
 echo "clear" >> .bash_profile
