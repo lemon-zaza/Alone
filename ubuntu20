@@ -85,6 +85,17 @@ visible_hostname Phanudet" > /etc/squid/squid.conf
 sudo ufw allow ssh
 sudo ufw allow 8080
 
+cd /usr/bin
+wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
+wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit2"
+wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ReU20"
+wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ufw"
+
+chmod +x /usr/local/bin/m
+chmod +x /usr/local/bin/01
+chmod +x /usr/local/bin/02
+chmod +x /usr/local/bin/03
+
 clear
 echo ""
 echo " ========= • ≧ SCRIPT INSTALL AUTO ≦ • ========="
