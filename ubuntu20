@@ -61,9 +61,14 @@ http_access allow localhost
 http_access deny all
 
 http_port 8080
-http_port 3128
 
+cache_store_log none
+cache_log /dev/null
+logfile_rotate 0
 
+via off
+forwarded_for off
+dns_v4_first on
 refresh_pattern ^ftp:           1440    20%     10080
 refresh_pattern ^gopher:        1440    0%      1440
 refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
@@ -79,7 +84,6 @@ visible_hostname Phanudet" > /etc/squid/squid.conf
 
 sudo ufw allow ssh
 sudo ufw allow 8080
-sudo ufw allow 3128
 
 clear
 echo ""
@@ -90,7 +94,7 @@ echo " ➢ ความคุมเซิร์ฟเวอร์ด้วยร
 echo " ➢ Donate At 0802686710 thank you."
 echo ""
 echo "• Squid Proxy : $MYIP"
-echo "• Proxy Port  : 8080,3128"
+echo "• Proxy Port  : 8080"
 echo "• Pritunl Websites https://$MYIP"
 echo ""
 pritunl setup-key
