@@ -7,3 +7,8 @@ sudo ufw enable
 echo ""
 echo "  เสร็จ : m"
 echo ""
+echo "  ตรวจเช็ค  ufw Command."
+echo ""
+echo "  sudo ufw status verbose"
+echo "  sudo systemctl status ufw.service"
+echo ""
