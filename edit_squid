@@ -1,3 +1,0 @@
-#!/bin/bash
-
-nano /etc/squid3/squid.conf
