@@ -28,14 +28,14 @@ systemctl enable pritunl mongodb
 apt -y install squid
 
 cp /etc/squid/squid.conf /etc/squid/squid.conf.orig
-echo "acl localnet src 0.0.0.1-0.255.255.255
-acl localnet src 10.0.0.0/8
-acl localnet src 100.64.0.0/10
-acl localnet src 169.254.0.0/16
-acl localnet src 172.16.0.0/12
-acl localnet src 192.168.0.0/16
-acl localnet src fc00::/7
-acl localnet src fe80::/10
+echo "acl localnet src 0.0.0.1-0.255.255.255  # RFC 1122 "this" network (LAN)
+acl localnet src 10.0.0.0/8             # RFC 1918 local private network (LAN)
+acl localnet src 100.64.0.0/10          # RFC 6598 shared address space (CGN)
+acl localnet src 169.254.0.0/16         # RFC 3927 link-local (directly plugged>
+acl localnet src 172.16.0.0/12          # RFC 1918 local private network (LAN)
+acl localnet src 192.168.0.0/16         # RFC 1918 local private network (LAN)
+acl localnet src fc00::/7               # RFC 4193 local private network range
+acl localnet src fe80::/10              # RFC 4291 link-local (directly plugged>
 
 acl SSL_ports port 443
 acl Safe_ports port 80          # http
@@ -52,26 +52,25 @@ acl CONNECT method CONNECT
 
 acl ip_server dst $MYIP-$MYIP/255.255.255.255
 
+http_access deny !Safe_ports
+http_access deny CONNECT !SSL_ports
 http_access allow ip_server
 http_access allow localhost manager
 http_access deny manager
-http_access allow localnet
 http_access allow localhost
 http_access deny all
 
 http_port 8080
 http_port 3128
 
-cache_store_log none
-cache_log /dev/null
-logfile_rotate 0
 
-via off
-forwarded_for off
-dns_v4_first on
 refresh_pattern ^ftp:           1440    20%     10080
 refresh_pattern ^gopher:        1440    0%      1440
 refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
+refresh_pattern \/(Packages|Sources)(|\.bz2|\.gz|\.xz)$ 0 0% 0 refresh-ims
+refresh_pattern \/Release(|\.gpg)$ 0 0% 0 refresh-ims
+refresh_pattern \/InRelease$ 0 0% 0 refresh-ims
+refresh_pattern \/(Translation-.*)(|\.bz2|\.gz|\.xz)$ 0 0% 0 refresh-ims
 refresh_pattern .               0       20%     4320
 visible_hostname Phanudet" > /etc/squid/squid.conf
 
