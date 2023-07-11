@@ -1,0 +1,22 @@
+#!/bin/bash
+squiddir='/etc/squid/'
+lib='/usr/lib/squid/'
+conf="${squiddir}squid.conf"
+clients=()
+authusers=()
+passwd=()
+apt update
+apt -y install apache2-utils
+apt -y install squid
+/etc/init.d/squid stop
+index=0
+for ip in "${clients[@]}"; do sudo sed -i "/# And finally deny all other access to this proxy/i\acl client$index src $ip\nhttp_access allow client$index\n" $conf; index=$((index+1)); done
+sed -i "s/http_access deny CONNECT !SSL_ports/# http_access deny CONNECT !SSL_ports/g" $conf
+sed -i "s/http_access deny !Safe_ports/# http_access deny !Safe_ports/g" $conf
+sudo touch "$squiddir""squid_passwd"
+sudo chown proxy "$squiddir""squid_passwd"
+for ((i = 0; i < ${#authusers[@]}; ++i)); do sudo htpasswd -b "${squiddir}squid_passwd" "${authusers[$i]}" "${passwd[$i]}"; done
+sudo sed -i "/# And finally deny all other access to this proxy/i\auth_param basic program ${lib}basic_ncsa_auth ${squiddir}squid_passwd\nacl ncsa_users proxy_auth REQUIRED\nhttp_access allow ncsa_users\n" $conf
+echo "request_header_access Via deny all" >> $conf
+echo "forwarded_for delete" >> $conf
+sudo /etc/init.d/squid start
