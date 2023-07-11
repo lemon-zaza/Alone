@@ -25,6 +25,8 @@ apt --assume-yes install pritunl mongodb-server
 systemctl start pritunl mongodb
 systemctl enable pritunl mongodb
 
+clear
+apt update
 apt -y install squid
 
 cp /etc/squid/squid.conf /etc/squid/squid.conf.orig
