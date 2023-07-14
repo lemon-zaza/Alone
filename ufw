@@ -4,11 +4,11 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw enable
 
-echo ""
-echo "  เสร็จ : m"
-echo ""
-echo "  ตรวจเช็ค  ufw Command."
-echo ""
-echo "  sudo ufw status verbose"
-echo "  sudo systemctl status ufw.service"
-echo ""
+echo -e ""
+echo -e "\033[1;37m  เสร็จ\033[1;31m :\033[1;32m m"
+echo -e ""
+echo -e "\033[1;32m  ตรวจเช็ค  ufw Command."
+echo -e ""
+echo -e "\033[1;35m  sudo ufw status verbose"
+echo -e "\033[1;35m  sudo systemctl status ufw.service"
+echo -e ""
