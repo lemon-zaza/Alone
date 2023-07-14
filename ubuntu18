@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo -e "\033[1;36m"
 if [[ $EUID -ne 0 ]]; then
   echo "เกิดข้อผิดพลาด: กรุณาเข้าสู่ระบบด้วย root : sudo -i ก่อนลงสคริปต์" 2>&1
   exit 1
@@ -117,3 +116,4 @@ pritunl setup-key
 echo -e ""
 echo -e "\033[1;32mCopy key Go to website"
 echo -e ""
+echo -ne " \033[1;33m?\033[1;37m "
