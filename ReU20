@@ -4,5 +4,5 @@
 /etc/init.d/squid restart
 
 echo -e ""
-echo -e "\033[1;33m Restart เสร็จ \033[1;31m:\033[1;33m m"
+echo -e "\033[1;37m Restart เสร็จ \033[1;31m:\033[1;32m m"
 echo -e ""
