@@ -4,6 +4,7 @@ MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
 clear
 echo -e ""
+echo -e ""
 echo -e "\E[44;1;37m          Donate At 0802686710 thank you.           \E[0m"
 echo -e "\033[1;31m====================================================    "
 echo -e "\033[1;32m*\033[1;37mสคริปต์ \033[1;35mUbuntu20.4 \033[1;37mอัพเดทล่าสุด \033[1;32m2023"
