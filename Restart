@@ -2,6 +2,6 @@
 
 /etc/init.d/squid3 restart
 
-echo ""
-echo " Restart เสร็จ : m"
-echo ""
+echo -e ""
+echo -e "\033[1;37m Restart เสร็จ \033[1;31m:\033[1;32m m"
+echo -e ""
