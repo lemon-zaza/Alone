@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo -e "\033[1;36m"
 if [[ $EUID -ne 0 ]]; then
   echo "เกิดข้อผิดพลาด: กรุณาเข้าสู่ระบบด้วย root : sudo -i ก่อนลงสคริปต์" 2>&1
   exit 1
