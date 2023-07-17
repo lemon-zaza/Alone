@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+#
+# Author  : Joker-Security
+# Hercules - Automated VPN Connect
+# Twitter: https://twitter.com/SecurityJoker
+# Channel ; https://www.youtube.com/c/Professionalhacker25
+# FACE Pg2: https://facebook.com/kali.linux.pentesting.tutorials
 
 import os
 import re
@@ -17,7 +23,20 @@ def clear():
         pass
 
 def banner():
-	print("""\033[92m เชื่อมต่อ เทสระบบ""")
+	print("""\033[92m                                        
+              (O)
+              <W     _______                         __   
+              <M    |   |   |.-----.----.----.--.--.|  |.-----.-----. 
+   o          <M    |       ||  -__|   _|  __|  |  ||  ||  -__|__ --| 
+  /| ......  /:M\------------------------------------------------,,,,,,
+(O)[]XXXXXX[]I:K+}=============================================------------> \033[94m
+  \| ^^^^^^  \:W/------------------------------------------------''''''  
+   o          <W    |___|___||_____|__| |____|_____||__||_____|_____|      
+              <W
+              <W             \033[92m Hercules - Automated VPN Connect  
+              (O)                C0d3n4m3:\033[91m Joker-Security \033[92m       
+\033[93m                                  github.com/joker25000                                                                                                                                                                                       
+""")
 def command():
 	os.system('clear')
 	os.system('rm -f th-internet-*')
@@ -25,27 +44,27 @@ def command():
 
 def download():
 	link = 'wget https://github.com/PiTOn-0/Alone/raw/main/th-internet.zip'
-	print ' \033[94m\n[+]\033[94mโหลดไฟล์ \n\n' 
+	print ' \033[94m\n[+]\033[94m ---> Downloading VPN-FREE \n\n' 
 	os.system(link)
 
 def unzip():
 	download()
 	crack = 'unzip th-internet.zip'
-	print '\n \033[94m\n[+]\033[94m ---> ไฟล์\n\n'
+	print '\n \033[94m\n[+]\033[94m ---> Unzip File\n\n'
 	out = os.path.isfile('th-internet.zip')
 	if out:
 		os.system(crack)
 	else:
-		print 'Error: \033[93m\n[+]\033[93m ---> ไม่มีไฟล์ zip'
+		print 'Error: \033[93m\n[+]\033[93m ---> No Unzip File'
 
 def getpass():
 	print '\n \033[94m\n[+]\033[94m ---> Getting New Password\n\n'
 	global user, passwd
-	user = 'abcd'
+	user = 'vpnbook'
 	try:
-		openUrl = urllib2.urlopen('https://github.com/PiTOn-0/Alone/tree/main')
+		openUrl = urllib2.urlopen('http://www.vpnbook.com/freevpn')
 	except urllib2.URLError:
-		exit('ตรวจสอบว่าคุณเชื่อมต่อกับอินเทอร์เน็ต')
+		exit('Verify that you are connected to the Internet')
 	kader = openUrl.read()
 	joker = '''<li>Password: <strong>(.+?)</strong></li>'''
 	dz = re.findall(joker, kader)
