@@ -8,8 +8,7 @@ fi
 MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
 apt update
-apt-get -y install ufw
-apt-get -y install sudo
+apt -y install ufw
 
 apt -y install curl gnupg2 wget unzip
 apt -y install neofetch
@@ -39,7 +38,9 @@ sudo chmod +x /etc/init.d/squid3
 sudo update-rc.d squid3 defaults
 
 cp /etc/squid3/squid.conf /etc/squid3/squid.conf.orig
-echo "acl localnet src 0.0.0.1-0.255.255.255
+echo "acl localhost src 127.0.0.1/32 ::1
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
+acl localnet src 0.0.0.1-0.255.255.255
 acl localnet src 10.0.0.0/8
 acl localnet src 100.64.0.0/10
 acl localnet src 169.254.0.0/16
@@ -64,13 +65,12 @@ acl CONNECT method CONNECT
 acl ip_server dst $MYIP-$MYIP/255.255.255.255
 
 http_access allow ip_server
-http_access allow localhost manager
-http_access deny manager
 http_access allow localnet
 http_access allow localhost
 http_access deny all
 
 http_port 8080
+http_port 3128
 
 cache_store_log none
 cache_log /dev/null
@@ -89,7 +89,11 @@ visible_hostname Phanudet" > /etc/squid3/squid.conf
 /etc/init.d/squid3 restart
 
 sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
 sudo ufw allow 8080
+sudo ufw allow 3128
+sudo yes | ufw enable
 
 cd /usr/bin
 wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
@@ -109,7 +113,7 @@ echo -e "\033[1;32m*\033[1;33m ความคุมเซิร์ฟเวอ�
 echo -e "\033[1;32m*\033[1;37mMENU \033[1;31m:\033[1;32m m"
 echo -e ""
 echo -e "\033[1;32m• \033[1;37mSquid Proxy \033[1;31m: \033[1;32m$MYIP"
-echo -e "\033[1;32m• \033[1;37mProxy Port  \033[1;31m: \033[1;32m8080"
+echo -e "\033[1;32m• \033[1;37mProxy Port  \033[1;31m: \033[1;32m8080,3128"
 echo -e "\033[1;32m• \033[1;36mPritunl Websites https://$MYIP"
 echo -e ""
 pritunl setup-key
