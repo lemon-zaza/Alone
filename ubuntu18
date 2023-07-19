@@ -89,11 +89,8 @@ visible_hostname Phanudet" > /etc/squid3/squid.conf
 /etc/init.d/squid3 restart
 
 sudo ufw allow ssh
-sudo ufw allow http
-sudo ufw allow https
 sudo ufw allow 8080
 sudo ufw allow 3128
-sudo yes | ufw enable
 
 cd /usr/bin
 wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
