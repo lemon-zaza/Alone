@@ -38,9 +38,7 @@ sudo chmod +x /etc/init.d/squid3
 sudo update-rc.d squid3 defaults
 
 cp /etc/squid3/squid.conf /etc/squid3/squid.conf.orig
-echo "acl localhost src 127.0.0.1/32 ::1
-acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
-acl localnet src 0.0.0.1-0.255.255.255
+echo "acl localnet src 0.0.0.1-0.255.255.255
 acl localnet src 10.0.0.0/8
 acl localnet src 100.64.0.0/10
 acl localnet src 169.254.0.0/16
@@ -65,6 +63,8 @@ acl CONNECT method CONNECT
 acl ip_server dst $MYIP-$MYIP/255.255.255.255
 
 http_access allow ip_server
+http_access allow localhost manager
+http_access deny manager
 http_access allow localnet
 http_access allow localhost
 http_access deny all
