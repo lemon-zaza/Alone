@@ -2,7 +2,7 @@
 
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
-sudo ufw enable
+sudo yes | ufw enable
 
 echo -e ""
 echo -e "\033[1;37m  เสร็จ\033[1;31m :\033[1;32m m"
