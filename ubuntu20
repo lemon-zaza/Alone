@@ -30,7 +30,9 @@ apt update
 apt -y install squid
 
 cp /etc/squid/squid.conf /etc/squid/squid.conf.orig
-echo "acl localnet src 0.0.0.1-0.255.255.255  # RFC 1122 "this" network (LAN)
+echo "acl localhost src 127.0.0.1/32 ::1
+acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
+acl localnet src 0.0.0.1-0.255.255.255  # RFC 1122 "this" network (LAN)
 acl localnet src 10.0.0.0/8             # RFC 1918 local private network (LAN)
 acl localnet src 100.64.0.0/10          # RFC 6598 shared address space (CGN)
 acl localnet src 169.254.0.0/16         # RFC 3927 link-local (directly plugged>
@@ -55,13 +57,12 @@ acl CONNECT method CONNECT
 acl ip_server dst $MYIP-$MYIP/255.255.255.255
 
 http_access allow ip_server
-http_access allow localhost manager
-http_access deny manager
 http_access allow localnet
 http_access allow localhost
 http_access deny all
 
 http_port 8080
+http_port 3128
 
 cache_store_log none
 cache_log /dev/null
@@ -85,6 +86,7 @@ visible_hostname Phanudet" > /etc/squid/squid.conf
 
 sudo ufw allow ssh
 sudo ufw allow 8080
+sudo ufw allow 3128
 
 cd /usr/bin
 wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
