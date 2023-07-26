@@ -17,8 +17,8 @@
 
 ```
 pkg update -y && pkg upgrade -y
-pkg install openssh
-pkg install wget
+pkg install openssh -y
+pkg install wget -y
 pkg install git
 ssh user@ip server
 git clone https://github.com/PiTOn-0/Alone.git
