@@ -1,4 +1,7 @@
 <p align="center">
+<img height=21 src="https://komarev.com/ghpvc/?username=PiTOn-0">
+</p>
+<p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?color=%0A360E&center=true&vCenter=true&lines=Script+Install+Pritunl+BY+Alone" />
 </p>
 <div height='45' align="center">
