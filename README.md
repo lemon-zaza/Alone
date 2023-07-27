@@ -17,10 +17,9 @@
 </h2>
 </div>
 
-**INSTALL SCRIPT ON TERMUX**
+# INSTALL SCRIPT ON TERMUX
 
-- Ubuntu18.04
-- Ubuntu20.04
+<p align="left"> <img src="https://img.shields.io/static/v1?style=for-the-badge&logo=ubuntu&label=Ubuntu%2018&message=18.04 LTS&color=%173e16"> <img src="https://img.shields.io/static/v1?style=for-the-badge&logo=ubuntu&label=Ubuntu%2020&message=20.04 LTS&color=%173e16"></p>
 
 ```
 pkg update -y && pkg upgrade -y
@@ -33,8 +32,8 @@ ls
 cd Alone
 bash ubuntu20 หรือ ubuntu18
 ```
-**INSTALL SCRIPT ON JUICE SSH**
-- Ubuntu20.04
+# INSTALL SCRIPT ON JUICE SSH
+<img src="https://img.shields.io/static/v1?style=for-the-badge&logo=ubuntu&label=Ubuntu%2020&message=20.04 LTS&color=%173e16">
   
 ```
 wget -O install https://raw.githubusercontent.com/PiTOn-0/Alone/master/ubuntu20
