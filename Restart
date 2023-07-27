@@ -2,6 +2,7 @@
 
 /etc/init.d/squid3 restart
 systemctl start pritunl mongodb
+systemctl restart pritunl mongodb
 systemctl enable pritunl mongodb
 
 echo -e ""
