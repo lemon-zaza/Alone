@@ -1,8 +1,15 @@
-<p align="center">
-<img height=21 src="https://komarev.com/ghpvc/?username=PiTOn-0">
-</p>
+# Alone
+- ***SCRIPT INSTALL PRITUNL***
+- ***SCRIPT RUN ON TERMUX && JUICE SSH***
+  
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?color=%0A360E&center=true&vCenter=true&lines=Script+Install+Pritunl+BY+Alone" />
+</p>
+
+<p align='center'><a href><img src="https://raw.githubusercontent.com/PiTOn-0/Alone/main/Alone.png?r=82s" width="250"/></a></p>
+
+<p align="center">
+<img height=21 src="https://komarev.com/ghpvc/?username=PiTOn-0">
 </p>
 <div height='45' align="center">
 <h2> ❄โ❂௮თัՁ aণع ツ<br>
@@ -26,5 +33,11 @@ ls
 cd Alone
 bash ubuntu20 หรือ ubuntu18
 ```
-
+**INSTALL SCRIPT ON JUICE SSH**
+- Ubuntu20.04
+  
+```
+wget -O install https://raw.githubusercontent.com/PiTOn-0/Alone/master/ubuntu20
+bash install
+```
 <a href="https://youtu.be/oL20xv-2a6g"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPiTOn-0%2FAlone&count_bg=%2379C83D&title_bg=%23555555&icon=youtubetv.svg&icon_color=%23FF0000&title=%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B9%83%E0%B8%99+Termux+&edge_flat=true"/></a>
