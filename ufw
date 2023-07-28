@@ -1,5 +1,7 @@
 #!/bin/bash
 
+NC='\033[0m'
+
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo yes | ufw enable
@@ -12,4 +14,4 @@ echo -e ""
 echo -e "\033[1;35m  sudo ufw status verbose"
 echo -e "\033[1;35m  sudo systemctl status ufw.service"
 echo -e ""
-echo -ne " \033[1;33m?\033[1;37m "
+echo -ne " \033[1;33m?\033[1;37m${NC} "
