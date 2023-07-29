@@ -186,11 +186,13 @@ wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master
 wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit1"
 wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Restart"
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ufw"
+wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/PiTOn-0/phanudet/master/restart-n-v-p"
 
 chmod +x /usr/local/bin/m
 chmod +x /usr/local/bin/01
 chmod +x /usr/local/bin/02
 chmod +x /usr/local/bin/03
+chmod +x /usr/local/bin/04
 
 clear
 echo -e ""
