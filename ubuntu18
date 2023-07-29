@@ -5,7 +5,6 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-NC='\033[0m'
 MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
 apt update
@@ -108,6 +107,7 @@ chmod +x /usr/local/bin/01
 chmod +x /usr/local/bin/02
 chmod +x /usr/local/bin/03
 
+NC='\033[0m'
 clear
 echo -e ""
 echo -e "\E[44;1;45m          ------ • ≧ ติดตั้งสำเร็จ..! ≦ • ------           \E[0m"
