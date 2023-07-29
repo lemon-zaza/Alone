@@ -90,7 +90,6 @@ visible_hostname Phanudet" > /etc/squid3/squid.conf
 /etc/init.d/squid3 restart
 
 clear
-sudo apt update
 
 sudo ufw allow ssh
 sudo ufw allow 8080
