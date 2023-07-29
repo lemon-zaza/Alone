@@ -92,32 +92,9 @@ visible_hostname Phanudet" > /etc/squid3/squid.conf
 clear
 sudo apt update
 
-# set time GMT +7
-ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
-
-sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/PiTOn-0/lemon/master/sshd_config
-systemctl restart sshd
-service ssh restart
-
-apt -y install dropbear
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 12000 -p 115 -p 109"/g' /etc/default/dropbear
-echo "/bin/false" >> /etc/shells
-echo "/usr/sbin/nologin" >> /etc/shells
-service dropbear restart
-
-#Banner
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-wget -O /etc/issue.net "https://raw.githubusercontent.com/PiTOn-0/lemon/master/issue.net"
-service ssh restart
-service dropbear restart
-
-clear
-sudo ufw allow 22,143,85,12000,115,109,8080,3128/tcp
-sudo ufw allow 22,143,85,12000,115,109,8080,3128/udp
+sudo ufw allow ssh
+sudo ufw allow 8080
+sudo ufw allow 3128
 sudo yes | ufw enable
 
 clear
@@ -126,21 +103,11 @@ wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master
 wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit1"
 wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Restart"
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ufw"
-wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/PiTOn-0/lemon/master/useradd"
-wget -O /usr/local/bin/05 "https://raw.githubusercontent.com/PiTOn-0/lemon/master/user-on"
-wget -O /usr/local/bin/06 "https://raw.githubusercontent.com/PiTOn-0/lemon/master/allusers"
-wget -O /usr/local/bin/07 "https://raw.githubusercontent.com/PiTOn-0/lemon/master/delete-user"
-wget -O /usr/local/bin/08 "https://raw.githubusercontent.com/PiTOn-0/lemon/master/system"
 
 chmod +x /usr/local/bin/m
 chmod +x /usr/local/bin/01
 chmod +x /usr/local/bin/02
 chmod +x /usr/local/bin/03
-chmod +x /usr/local/bin/04
-chmod +x /usr/local/bin/05
-chmod +x /usr/local/bin/06
-chmod +x /usr/local/bin/07
-chmod +x /usr/local/bin/08
 
 clear
 echo -e ""
