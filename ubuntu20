@@ -91,7 +91,6 @@ sudo apt update
 sudo ufw allow ssh
 sudo ufw allow 8080
 sudo ufw allow 3128
-sudo yes | ufw enable
 
 clear
 cd /usr/bin
