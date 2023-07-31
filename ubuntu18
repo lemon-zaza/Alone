@@ -173,9 +173,7 @@ wget -qO- -O config.php https://raw.githubusercontent.com/PiTOn-0/phanudet/maste
 cd
 
 sudo ufw allow ssh
-sudo ufw allow 'Nginx HTTP'
-sudo ufw allow http
-sudo ufw allow https
+sudo ufw allow 80
 sudo ufw allow 85
 sudo ufw allow 8080
 sudo ufw allow 3128
