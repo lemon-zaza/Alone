@@ -92,7 +92,7 @@ sudo ufw allow 8080
 
 clear
 cd /usr/bin
-wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
+wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/phanudet/master/me2"
 wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit2"
 wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ReU20"
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ufw"
