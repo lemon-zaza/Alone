@@ -63,7 +63,6 @@ http_access allow localhost
 http_access deny all
 
 http_port 8080
-http_port 3128
 
 cache_store_log none
 cache_log /dev/null
@@ -90,7 +89,6 @@ sudo apt update
 
 sudo ufw allow ssh
 sudo ufw allow 8080
-sudo ufw allow 3128
 
 clear
 cd /usr/bin
@@ -112,7 +110,7 @@ echo -e "\033[1;32m*\033[1;37mMENU \033[1;31m:\033[1;32m m"
 echo -e ""
 echo -e "\033[1;32m• \033[1;37mTimezone \033[1;31m: \033[1;32m Thailand"
 echo -e "\033[1;32m• \033[1;37mSquid Proxy \033[1;31m: \033[1;32m$MYIP"
-echo -e "\033[1;32m• \033[1;37mProxy Port  \033[1;31m: \033[1;32m8080,3128"
+echo -e "\033[1;32m• \033[1;37mProxy Port  \033[1;31m: \033[1;32m8080"
 echo -e "\033[1;32m• \033[1;36mPritunl Websites https://$MYIP${NC}"
 echo -e ""
 pritunl setup-key
