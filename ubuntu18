@@ -33,7 +33,7 @@ echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/
 apt update
 
 apt -y install squid3=3.3.8-1ubuntu6 squid=3.3.8-1ubuntu6 squid3-common=3.3.8-1ubuntu6
-wget -O squid3 https://raw.githubusercontent.com/PiTOn-0/Alone/master/squid3
+wget -O squid3 https://raw.githubusercontent.com/lemon-zaza/Alone/master/squid3
 sudo cp squid3 /etc/init.d/
 sudo chmod +x /etc/init.d/squid3
 sudo update-rc.d squid3 defaults
@@ -128,7 +128,7 @@ http {
 }
 END
 	mkdir -p /home/vps/public_html
-	wget -qO- -O /home/vps/public_html/index.html https://raw.githubusercontent.com/PiTOn-0/phanudet/master/www.html
+	wget -qO- -O /home/vps/public_html/index.html https://raw.githubusercontent.com/lemon-zaza/phanudet/master/www.html
 	echo "<?phpinfo(); ?>" > /home/vps/public_html/info.php
 	args='$args'
 	uri='$uri'
@@ -153,12 +153,12 @@ server {
     }
 }
 END
-wget -qO- -O /etc/php/7.2/fpm/pool.d/www.conf https://raw.githubusercontent.com/PiTOn-0/phanudet/master/php
+wget -qO- -O /etc/php/7.2/fpm/pool.d/www.conf https://raw.githubusercontent.com/lemon-zaza/phanudet/master/php
 service php7.2-fpm restart
 service nginx restart
 
 apt -y install vnstat
-wget -qO- -O /etc/vnstat.conf https://raw.githubusercontent.com/PiTOn-0/phanudet/master/vnstat.conf
+wget -qO- -O /etc/vnstat.conf https://raw.githubusercontent.com/lemon-zaza/phanudet/master/vnstat.conf
 sudo chown -R vnstat:vnstat /var/lib/vnstat
 service vnstat restart
 
@@ -168,7 +168,7 @@ tar xf vnstat_php_frontend-1.5.1.tar.gz
 rm vnstat_php_frontend-1.5.1.tar.gz
 mv vnstat_php_frontend-1.5.1 vnstat
 cd vnstat
-wget -qO- -O config.php https://raw.githubusercontent.com/PiTOn-0/phanudet/master/config.php
+wget -qO- -O config.php https://raw.githubusercontent.com/lemon-zaza/phanudet/master/config.php
 cd
 
 sudo ufw allow ssh
@@ -179,11 +179,11 @@ sudo ufw allow 8080
 
 clear
 cd /usr/bin
-wget -O /usr/local/bin/m "https://raw.githubusercontent.com/PiTOn-0/Alone/master/menu"
-wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/edit1"
-wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/Restart"
-wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/PiTOn-0/Alone/master/ufw"
-wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/PiTOn-0/phanudet/master/restart-n-v-p"
+wget -O /usr/local/bin/m "https://raw.githubusercontent.com/lemon-zaza/Alone/master/menu"
+wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/edit1"
+wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/Restart"
+wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ufw"
+wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/restart-n-v-p"
 
 chmod +x /usr/local/bin/m
 chmod +x /usr/local/bin/01
