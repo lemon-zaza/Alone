@@ -20,7 +20,6 @@ echo "deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/7.0 multiverse"
 echo "deb https://repo.pritunl.com/stable/apt bionic main" > /etc/apt/sources.list.d/pritunl.list
 sudo apt --assume-yes install gnupg
 wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/mongodb-org-7.0.asc
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 160D26BB1785BA38
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 7AE645C0CF8E292A
 gpg --armor --export 7AE645C0CF8E292A | sudo tee /etc/apt/trusted.gpg.d/pritunl.asc
 apt update
