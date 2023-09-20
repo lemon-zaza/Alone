@@ -14,11 +14,10 @@ apt -y install neofetch
 echo "clear" >> .bash_profile
 echo "neofetch" >> .bash_profile
 
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-6.0.list
+echo "deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-7.0.list
 echo "deb https://repo.pritunl.com/stable/apt focal main" > /etc/apt/sources.list.d/pritunl.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 6A26B1AE64C3C388
 sudo apt --assume-yes install gnupg
-curl -fsSL https://pgp.mongodb.com/server-6.0.asc | \sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg \--dearmor
+wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/mongodb-org-7.0.asc
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 7AE645C0CF8E292A
 gpg --armor --export 7AE645C0CF8E292A | sudo tee /etc/apt/trusted.gpg.d/pritunl.asc
 apt update
