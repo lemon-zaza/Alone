@@ -92,7 +92,7 @@ sudo ufw allow 8080
 
 clear
 cd /usr/bin
-wget -O /usr/local/bin/00 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/menu-u"
+wget -O /usr/local/bin/00 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/menu-u"
 wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/edit2"
 wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ReU20"
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ufw"
