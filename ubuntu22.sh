@@ -9,15 +9,16 @@ NC='\033[0m'
 MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
 apt update
-apt -y install gpg curl gnupg2 wget unzip software-properties-common apt-transport-https lsb-release ca-certificates
+apt -y install curl gnupg2 wget unzip
 apt -y install neofetch
 echo "clear" >> .bash_profile
 echo "neofetch" >> .bash_profile
 
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-7.0.list
 echo "deb https://repo.pritunl.com/stable/apt jammy main" > /etc/apt/sources.list.d/pritunl.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 160D26BB1785BA38
+sudo apt --assume-yes install gnupg
 curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \--dearmor
+apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 160D26BB1785BA38
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 7AE645C0CF8E292A
 apt-key adv --armor --export 7AE645C0CF8E292A | sudo tee /etc/apt/trusted.gpg.d/pritunl.asc
 apt update
