@@ -8,7 +8,7 @@ fi
 NC='\033[0m'
 MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 
-apt update && apt -y full-upgrade
+apt update
 apt -y install gpg curl gnupg2 wget unzip software-properties-common apt-transport-https lsb-release ca-certificates
 apt -y install neofetch
 echo "clear" >> .bash_profile
