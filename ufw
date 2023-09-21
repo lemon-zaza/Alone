@@ -7,7 +7,7 @@ sudo ufw default allow outgoing
 sudo yes | ufw enable
 
 echo -e ""
-echo -e "\033[1;37m  เสร็จ\033[1;31m :\033[1;32m m"
+echo -e "\033[1;37m  เสร็จ\033[1;31m :\033[1;32m 00"
 echo -e ""
 echo -e "\033[1;32m  ตรวจเช็ค  ufw Command."
 echo -e ""
