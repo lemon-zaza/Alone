@@ -189,6 +189,7 @@ chmod +x /usr/local/bin/01
 chmod +x /usr/local/bin/02
 chmod +x /usr/local/bin/03
 chmod +x /usr/local/bin/04
+cd
 
 clear
 echo -e ""
