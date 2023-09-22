@@ -27,6 +27,9 @@ systemctl start pritunl mongodb
 systemctl enable pritunl mongodb
 
 clear
+
+cd
+
 apt update
 apt -y install squid
 
@@ -91,6 +94,7 @@ sudo ufw allow ssh
 sudo ufw allow 8080
 
 clear
+cd
 cd /usr/bin
 wget -O /usr/local/bin/00 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/guzaa"
 wget -O /usr/local/bin/01 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/edit2"
@@ -101,6 +105,7 @@ chmod +x /usr/local/bin/00
 chmod +x /usr/local/bin/01
 chmod +x /usr/local/bin/02
 chmod +x /usr/local/bin/03
+cd
 
 clear
 echo -e ""
