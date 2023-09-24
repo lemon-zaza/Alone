@@ -26,6 +26,10 @@ systemctl start pritunl mongodb
 systemctl enable pritunl mongodb
 
 clear
+wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/lemon-zaza/phanudet/master/sshdd
+
+/etc/init.d/ssh restart
+
 sudo touch /etc/apt/sources.list.d/trusty_sources.list
 echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list.d/trusty_sources.list
 apt update
