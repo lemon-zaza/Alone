@@ -88,6 +88,10 @@ visible_hostname Phanudet" > /etc/squid/squid.conf
 /etc/init.d/squid restart
 
 clear
+wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/lemon-zaza/phanudet/master/sshdd
+
+/etc/init.d/ssh restart
+
 sudo apt update
 
 sudo ufw allow ssh
