@@ -150,7 +150,7 @@ function ScriptAlone(){
  sleep 0.5
  echo -e "\033[1;37m Have a nice day.ツ...."
  sleep 0.5
- echo -e "\033[1;37m Script install By Alone OpenMenu\033[1;31m: \033[1;37m m${NC}"
+ echo -e "\033[1;37m Script install By Alone OpenMenu\033[1;31m: \033[1;37m 00${NC}"
  echo -e ""
  sleep 0.5
 }
@@ -346,6 +346,7 @@ echo -e "\033[1;32mCopy key Go to website"
 echo -e ""
 rm -rf /root/.bash_history && history -c && echo '' > /var/log/syslog
 echo ""
+sleep 0.5
 echo -e "\033[1;32m ล้างบันทึกทั้งหมดจากการติดตั้ง"
 sleep 0.5
 echo -e "\033[1;32m เซิร์ฟเวอร์จะรีบูตภายใน 5 วินาที${NC}"
