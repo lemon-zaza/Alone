@@ -212,7 +212,7 @@ function ScriptAlone(){
  sleep 0.5
  echo -e "\033[1;37m Have a nice day.ツ...."
  sleep 0.5
- echo -e "\033[1;37m Script install By Alone OpenMenu\033[1;31m: \033[1;37m 00${NC}"
+ echo -e "\033[1;37m Script By Alone OpenMenu\033[1;31m: \033[1;32m 00${NC}"
  echo -e ""
  sleep 0.5
 }
@@ -264,10 +264,12 @@ echo -e ""
 rm -rf /root/.bash_history && history -c && echo '' > /var/log/syslog
 echo ""
 sleep 0.5
-echo -e "\033[1;32m ล้างบันทึกทั้งหมดจากการติดตั้ง"
+echo -e "\033[1;37m ล้างบันทึกทั้งหมดจากการติดตั้ง \033[1;32m Ok..."
+echo ""
 sleep 0.5
-echo -e "\033[1;32m เซิร์ฟเวอร์จะรีบูตภายใน 5 วินาที${NC}"
+echo -e "\033[1;37m เซิร์ฟเวอร์จะรีบูตภายใน \033[1;32m 5 วินาที${NC}"
+echo ""
 sleep 5
 rm -f setup*
-lemon_zaza
+reboot
 exit 1
