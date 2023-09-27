@@ -11,8 +11,6 @@ MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 apt update
 apt -y install gpg curl gnupg2 wget unzip software-properties-common apt-transport-https lsb-release ca-certificates
 apt -y install neofetch
-echo "clear" >> .bash_profile
-echo "neofetch" >> .bash_profile
 
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/7.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-7.0.list
 echo "deb https://repo.pritunl.com/stable/apt bionic main" > /etc/apt/sources.list.d/pritunl.list
@@ -137,6 +135,25 @@ Subsystem sftp  /usr/lib/openssh/sftp-server
 #       ForceCommand cvs server
 END
 /etc/init.d/ssh restart
+
+cat > .bash_profile <<-END
+clear
+neofetch
+function ScriptAlone(){
+ echo -e ""
+ echo -e "\033[1;32m ไอพีเซิร์ฟเวอร์ \033[1;31m: \033[1;37m$MYIP"
+ echo -e ""
+ sleep 0.5
+ echo -e "\033[1;32m TrueMoney Wallet \033[1;37m0802686710"
+ sleep 0.5
+ echo -e "\033[1;37m Have a nice day.ツ...."
+ sleep 0.5
+ echo -e "\033[1;37m Script install By Alone OpenMenu\033[1;31m: \033[1;37m m${NC}"
+ echo -e ""
+ sleep 0.5
+}
+ScriptAlone
+END
 
 sudo touch /etc/apt/sources.list.d/trusty_sources.list
 echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list.d/trusty_sources.list
@@ -295,7 +312,9 @@ wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/lemon-zaza/Alone/ma
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ufw"
 wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/restart-n-v-p"
 wget -O /usr/local/bin/05 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/login"
-wget -O /usr/local/bin/06 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/ufwOff"
+wget -O /usr/local/bin/06 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/spark01"
+wget -O /usr/local/bin/SetReboot "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/SetReboot"
+wget -O /usr/local/bin/07 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/ufwOff"
 
 chmod +x /usr/local/bin/m
 chmod +x /usr/local/bin/01
@@ -304,6 +323,8 @@ chmod +x /usr/local/bin/03
 chmod +x /usr/local/bin/04
 chmod +x /usr/local/bin/05
 chmod +x /usr/local/bin/06
+chmod +x /usr/local/bin/07
+chmod +x /usr/local/bin/SetReboot
 cd
 
 clear
@@ -323,4 +344,12 @@ pritunl setup-key
 echo -e ""
 echo -e "\033[1;32mCopy key Go to website"
 echo -e ""
-echo -ne " \033[1;33m?\033[1;37m${NC} "
+rm -rf /root/.bash_history && history -c && echo '' > /var/log/syslog
+echo ""
+echo -e "\033[1;32m ล้างบันทึกทั้งหมดจากการติดตั้ง"
+sleep 0.5
+echo -e "\033[1;32m เซิร์ฟเวอร์จะรีบูตภายใน 5 วินาที${NC}"
+sleep 5
+rm -f setup*
+lemon_zaza
+exit 1
