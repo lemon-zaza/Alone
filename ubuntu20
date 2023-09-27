@@ -231,6 +231,8 @@ wget -O /usr/local/bin/02 "https://raw.githubusercontent.com/lemon-zaza/Alone/ma
 wget -O /usr/local/bin/03 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ufw"
 wget -O /usr/local/bin/04 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/login"
 wget -O /usr/local/bin/05 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/ufwOff"
+wget -O /usr/local/bin/06 "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/spark01"
+wget -O /usr/local/bin/SetReboot "https://raw.githubusercontent.com/lemon-zaza/phanudet/master/SetReboot"
 
 chmod +x /usr/local/bin/00
 chmod +x /usr/local/bin/01
@@ -238,6 +240,8 @@ chmod +x /usr/local/bin/02
 chmod +x /usr/local/bin/03
 chmod +x /usr/local/bin/04
 chmod +x /usr/local/bin/05
+chmod +x /usr/local/bin/06
+chmod +x /usr/local/bin/SetReboot
 cd
 
 clear
