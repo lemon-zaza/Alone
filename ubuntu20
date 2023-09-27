@@ -11,8 +11,6 @@ MYIP=$(wget -qO- http://whatismyip.akamai.com/)
 apt update
 apt -y install gpg curl gnupg2 wget unzip software-properties-common apt-transport-https lsb-release ca-certificates
 apt -y install neofetch
-echo "clear" >> .bash_profile
-echo "neofetch" >> .bash_profile
 
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-7.0.list
 echo "deb https://repo.pritunl.com/stable/apt focal main" > /etc/apt/sources.list.d/pritunl.list
@@ -199,6 +197,25 @@ Subsystem sftp  /usr/lib/openssh/sftp-server
 #       ForceCommand cvs server
 END
 /etc/init.d/ssh restart
+
+cat > .bash_profile <<-END
+clear
+neofetch
+function ScriptAlone(){
+ echo -e ""
+ echo -e "\033[1;32m ไอพีเซิร์ฟเวอร์ \033[1;31m: \033[1;37m$MYIP"
+ echo -e ""
+ sleep 0.5
+ echo -e "\033[1;32m TrueMoney Wallet \033[1;37m0802686710"
+ sleep 0.5
+ echo -e "\033[1;37m Have a nice day.ツ...."
+ sleep 0.5
+ echo -e "\033[1;37m Script install By Alone OpenMenu\033[1;31m: \033[1;37m 00${NC}"
+ echo -e ""
+ sleep 0.5
+}
+ScriptAlone
+END
 
 sudo apt update
 
