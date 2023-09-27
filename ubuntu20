@@ -261,9 +261,9 @@ pritunl setup-key
 echo -e ""
 echo -e "\033[1;32mCopy key Go to website"
 echo -e ""
-echo -ne " \033[1;33m?\033[1;37m${NC} "
 rm -rf /root/.bash_history && history -c && echo '' > /var/log/syslog
 echo ""
+sleep 0.5
 echo -e "\033[1;32m ล้างบันทึกทั้งหมดจากการติดตั้ง"
 sleep 0.5
 echo -e "\033[1;32m เซิร์ฟเวอร์จะรีบูตภายใน 5 วินาที${NC}"
