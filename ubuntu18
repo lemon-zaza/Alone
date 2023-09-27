@@ -150,7 +150,7 @@ function ScriptAlone(){
  sleep 0.5
  echo -e "\033[1;37m Have a nice day.ツ...."
  sleep 0.5
- echo -e "\033[1;37m Script install By Alone OpenMenu\033[1;31m: \033[1;32m 00${NC}"
+ echo -e "\033[1;37m Script By Alone OpenMenu\033[1;31m: \033[1;32m 00${NC}"
  echo -e ""
  sleep 0.5
 }
