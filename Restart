@@ -4,5 +4,5 @@ NC='\033[0m'
 /etc/init.d/squid3 restart
 
 echo -e ""
-echo -e "\033[1;37m Restart เสร็จ \033[1;31m:\033[1;32m m${NC}"
+echo -e "\033[1;37m Restart เสร็จ \033[1;31m:\033[1;32m 00${NC}"
 echo -e ""
