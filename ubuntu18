@@ -143,7 +143,7 @@ clear
 neofetch
 function ScriptAlone(){
  echo -e ""
- echo -e "\033[1;32m My IP Address is: \033[1;31m: \033[1;37m$MYIP"
+ echo -e "\033[1;32m IP Server: \033[1;31m: \033[1;37m$MYIP"
  echo -e ""
  sleep 0.5
  echo -e "\033[1;32m TrueMoney Wallet \033[1;37m0802686710"
