@@ -1,10 +1,6 @@
 #!/bin/bash
 # Script install PRITUNL
 
-cd /usr/bin
-wget -O /usr/local/bin/99 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/install"
-chmod +x /usr/local/bin/99
-cd
 clear
 echo -e ""
 echo -e "  -------------*          เลือกเมนู ติดตั้ง          *-------------"
@@ -13,9 +9,7 @@ echo -e "                  [1] Ubuntu 18.04 LTS x64"
 echo -e ""
 echo -e "                  [2] Ubuntu 20.04 LTS x64"
 echo -e ""
-echo -e "                  [m] Back"
-echo -e ""
-read -p "   เลือกเมนู [1-2 or m] :  " Alone
+read -p "   เลือกเมนู [1-2 or m] :  " Alone 
 echo -e ""
 clear
 case $Alone in
@@ -33,11 +27,8 @@ bash +x Alone
 
 		exit
 		;;
-		m)
+		*)
 		clear
 		exit
-		;;
-		*)
-        99
 		;;
 	esac
