@@ -7,6 +7,10 @@ wget -O ubuntu20 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubun
 chmod +x ubuntu18
 chmod +x ubuntu20
 cd
+cd /usr/bin
+wget -O /usr/local/bin/install "https://raw.githubusercontent.com/lemon-zaza/Alone/master/install"
+chmod +x /usr/local/bin/install
+cd
 
 clear
 echo -e ""
@@ -16,7 +20,9 @@ echo -e "                  [1] Ubuntu 18.04 LTS x64"
 echo -e ""
 echo -e "                  [2] Ubuntu 20.04 LTS x64"
 echo -e ""
-read -p "   เลือกเมนู [1-2 menu] :  " Alone
+echo -e "                  [3] Back"
+echo -e ""
+read -p "   เลือกเมนู [1-3 menu 3] :  " Alone
 echo -e ""
 clear
 case $Alone in
@@ -28,6 +34,10 @@ case $Alone in
 		2)
 		clear
 		ubuntu20
+		exit
+		;;
+		3)
+		clear
 		exit
 		;;
 		*)
