@@ -39,6 +39,6 @@ bash +x Alone
 		exit
 		;;
 		*)
-        install
+        88
 		;;
 	esac
