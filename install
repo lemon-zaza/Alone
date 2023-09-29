@@ -1,12 +1,6 @@
 #!/bin/bash
 # Script install PRITUNL
 
-cd /usr/local/sbin/
-wget -O ubuntu18 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubuntu18"
-wget -O ubuntu20 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubuntu20"
-chmod +x ubuntu18
-chmod +x ubuntu20
-cd
 cd /usr/bin
 wget -O /usr/local/bin/install "https://raw.githubusercontent.com/lemon-zaza/Alone/master/install"
 chmod +x /usr/local/bin/install
@@ -28,12 +22,16 @@ clear
 case $Alone in
 		1)
 		clear
-		ubuntu18
+		wget -O Alone "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubuntu18"
+bash +x Alone
+
 		exit
 		;;
 		2)
 		clear
-		ubuntu20
+		wget -O Alone "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubuntu20"
+bash +x Alone
+
 		exit
 		;;
 		3)
