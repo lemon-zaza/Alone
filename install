@@ -1,11 +1,6 @@
 #!/bin/bash
 # Script install PRITUNL
 
-cd /usr/bin
-wget -O /usr/local/bin/88 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/install"
-chmod +x /usr/local/bin/88
-cd
-
 clear
 echo -e ""
 echo -e "  -------------*          เลือกเมนู ติดตั้ง          *-------------"
@@ -39,6 +34,6 @@ bash +x Alone
 		exit
 		;;
 		*)
-        88
+        ./install
 		;;
 	esac
