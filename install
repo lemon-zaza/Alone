@@ -1,0 +1,36 @@
+#!/bin/bash
+# Script install PRITUNL
+
+cd /usr/local/sbin/
+wget -O ubuntu18 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubuntu18"
+wget -O ubuntu20 "https://raw.githubusercontent.com/lemon-zaza/Alone/master/ubuntu20"
+chmod +x ubuntu18
+chmod +x ubuntu20
+cd
+
+clear
+echo -e ""
+echo -e "  -------------*          เลือกเมนู ติดตั้ง          *-------------"
+echo -e ""
+echo -e "                  [1] Ubuntu 18.04 LTS x64"
+echo -e ""
+echo -e "                  [2] Ubuntu 20.04 LTS x64"
+echo -e ""
+read -p "   เลือกเมนู [1-2 menu] :  " Alone
+echo -e ""
+clear
+case $Alone in
+		1)
+		clear
+		ubuntu18
+		exit
+		;;
+		2)
+		clear
+		ubuntu20
+		exit
+		;;
+		*)
+        install
+		;;
+	esac
