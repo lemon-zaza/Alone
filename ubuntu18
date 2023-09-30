@@ -13,6 +13,7 @@ ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
 apt update
 apt -y install gpg curl gnupg2 wget unzip software-properties-common apt-transport-https lsb-release ca-certificates
 apt -y install neofetch
+apt -y install ufw
 
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/7.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-7.0.list
 echo "deb https://repo.pritunl.com/stable/apt bionic main" > /etc/apt/sources.list.d/pritunl.list
